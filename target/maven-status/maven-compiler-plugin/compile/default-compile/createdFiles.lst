@@ -1,0 +1,6 @@
+com\resume\DatabaseManager.class
+com\resume\ResumeScorer.class
+com\resume\ResumeParser.class
+com\resume\MainTest.class
+com\resume\PDFExtractor.class
+com\resume\Candidate.class
