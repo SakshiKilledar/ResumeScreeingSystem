@@ -1,7 +1,11 @@
 C:\Users\saksh\OneDrive\Desktop\ResumeScreeingSystem\src\main\java\com\resume\Candidate.java
+C:\Users\saksh\OneDrive\Desktop\ResumeScreeingSystem\src\main\java\com\resume\CandidateDAO.java
+C:\Users\saksh\OneDrive\Desktop\ResumeScreeingSystem\src\main\java\com\resume\ChatGPTAnalyzer.java
 C:\Users\saksh\OneDrive\Desktop\ResumeScreeingSystem\src\main\java\com\resume\DatabaseManager.java
+C:\Users\saksh\OneDrive\Desktop\ResumeScreeingSystem\src\main\java\com\resume\ExcelReportGenerator.java
 C:\Users\saksh\OneDrive\Desktop\ResumeScreeingSystem\src\main\java\com\resume\MainTest.java
 C:\Users\saksh\OneDrive\Desktop\ResumeScreeingSystem\src\main\java\com\resume\PDFExtractor.java
+C:\Users\saksh\OneDrive\Desktop\ResumeScreeingSystem\src\main\java\com\resume\RankingWindow.java
 C:\Users\saksh\OneDrive\Desktop\ResumeScreeingSystem\src\main\java\com\resume\ResumeParser.java
 C:\Users\saksh\OneDrive\Desktop\ResumeScreeingSystem\src\main\java\com\resume\ResumeScorer.java
 C:\Users\saksh\OneDrive\Desktop\ResumeScreeingSystem\src\main\java\com\resume\ResumeScreeningGUI.java

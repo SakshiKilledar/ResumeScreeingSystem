@@ -13,6 +13,7 @@ public class ResumeScreeningGUI extends JFrame {
     private JTextArea resultArea;
 
     private String selectedFile = "";
+    
 
     public ResumeScreeningGUI() {
 
@@ -54,27 +55,38 @@ public class ResumeScreeningGUI extends JFrame {
 
         JButton analyzeButton = new JButton("Analyze Resume");
         analyzeButton.setBounds(250, 190, 180, 35);
+        analyzeButton.addActionListener(e -> analyzeResume());
+        JButton reportButton = new JButton("Generate Report");
 
-        
-
-        JButton reportButton =
-        new JButton("Generate Report");
-
-        reportButton.setBounds(
+reportButton.setBounds(
         450,
         190,
         160,
         35);
 
-        reportButton.addActionListener(e -> {
+reportButton.addActionListener(e -> {
 
-            ExcelReportGenerator.generateReport();
+    ExcelReportGenerator.generateReport();
 
-            JOptionPane.showMessageDialog(
+    JOptionPane.showMessageDialog(
             this,
             "Excel Report Generated Successfully!");
-        });
+});
+JButton rankingButton =
+        new JButton("View Rankings");
 
+rankingButton.setBounds(
+        250,
+        440,
+        180,
+        30);
+
+rankingButton.addActionListener(e -> {
+
+    new RankingWindow()
+            .setVisible(true);
+});
+       
         resultArea = new JTextArea();
         resultArea.setEditable(false);
 
@@ -90,10 +102,11 @@ public class ResumeScreeningGUI extends JFrame {
         panel.add(emailField);
         panel.add(fileLabel);
         panel.add(fileField);
-        panel.add(browseButton);
-        panel.add(analyzeButton);
-        panel.add(reportButton);
-        panel.add(scrollPane);
+     panel.add(browseButton);
+panel.add(analyzeButton);
+panel.add(reportButton);
+panel.add(rankingButton);
+panel.add(scrollPane);
 
         add(panel);
     }
@@ -139,6 +152,9 @@ public class ResumeScreeningGUI extends JFrame {
             double score =
                     ResumeScorer.calculateScore(
                             resumeText);
+            String aiAnalysis =
+                    ChatGPTAnalyzer.analyzeResume(
+                           resumeText);
 
             String analysis;
 
@@ -203,24 +219,25 @@ CandidateDAO.saveCandidate(
                         .append("\n");
             }
 
-            output.append(
-                    "\nAI Analysis:\n");
+           output.append(
+"\n\n========== CHATGPT ANALYSIS ==========\n\n");
 
-            if (score >= 80) {
+output.append(aiAnalysis);
 
-                output.append(
-                        "Excellent candidate. Highly suitable.");
-            }
-            else if (score >= 60) {
+output.append("\n\nOverall Result: ");
 
-                output.append(
-                        "Good candidate. Minor improvements required.");
-            }
-            else {
-
-                output.append(
-                        "Needs additional skills and training.");
-            }
+if (score >= 80) {
+    output.append(
+            "Excellent Candidate");
+}
+else if (score >= 60) {
+    output.append(
+            "Good Candidate");
+}
+else {
+    output.append(
+            "Needs Improvement");
+}
 
             resultArea.setText(
                     output.toString());
